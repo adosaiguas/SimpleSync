@@ -67,7 +67,7 @@ class ScpCopier(threading.Thread):
     print("SimpleSync: ", self.local_file, " -> ", remote)
 
     for line in runProcess(["scp", "-r", "-P", str(self.port) , self.local_file, remote]):
-      print(line, end='')
+      print(line.encode('ascii', 'ignore'), end='')
 
 #
 # LocalCopier does local copying using threading to avoid UI blocking
