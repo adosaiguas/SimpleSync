@@ -82,7 +82,7 @@ class LocalCopier(threading.Thread):
     print("SimpleSync: ", self.local_file, " -> ", self.remote_file)
 
     for line in runProcess(['cp', self.local_file, self.remote_file]):
-      print(line, end='')
+      print(line.encode('ascii', 'ignore'), end='')
 
 #
 # Subclass sublime_plugin.EventListener
